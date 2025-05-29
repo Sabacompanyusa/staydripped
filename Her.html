@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stay Dripped IV | Book Your IV Therapy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stay Dripped IV therapy treatments. Add to cart and book your appointment online. Hydration, recovery, NAD+, wellness.">
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 30px 0;
+      color: #3498db;
+    }
+    .treatment-card {
+      background: #ffffff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .treatment-card h2 {
+      color: #3498db;
+      font-size: 1.6rem;
+    }
+    .treatment-card p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #27ae60;
+      margin-bottom: 10px;
+    }
+    .add-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .add-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0072ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+      padding: 20px;
+      overflow-y: auto;
+      transition: right 0.3s;
+      z-index: 9999;
+    }
+    #cart-drawer h3 {
+      margin-top: 0;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .remove-button {
+      background: none;
+      border: none;
+      color: red;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .checkout-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<div id="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
+
+<div id="cart-drawer">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+  <div id="cart-total" style="margin-top: 10px; font-weight: bold;"></div>
+  <a class="checkout-button" href="https://staydrippediv.intakeq.com/booking" target="_blank">Proceed to Booking</a>
+</div>
+
+<h1>Choose Your Treatment</h1>
+
+<main>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV Bag (500mL)</h2>
+    <p>Quick hydration with vitamins. Ideal for dehydration after travel, workouts, or heat.</p>
+    <p class="price">$129</p>
+        <button class="add-button" onclick="addToCart('Basic Rehydrate IV Bag (500mL)', 129)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV Bag 2.0 (1000mL)</h2>
+    <p>A full liter of hydration paired with essential vitamins for robust recovery and energy replenishment.</p>
+    <p class="price">$149</p>
+    <button class="add-button" onclick="addToCart('Basic Rehydrate IV Bag 2.0 (1000mL)', 149)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV Bag 3.0 (Lactated Ringer 1000mL)</h2>
+    <p>Upgrade your hydration with Lactated Ringer’s solution plus vitamins for athletic and intensive recovery.</p>
+    <p class="price">$159</p>
+    <button class="add-button" onclick="addToCart('Basic Rehydrate IV Bag 3.0 (Lactated Ringer)', 159)">Add to Cart</button>
+  </div>
+
+  <!-- You can continue adding more treatments like this format -->
+
+</main>
+
+<script>
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+  function updateCart() {
+    const cartCount = document.getElementById('cart-count');
+    cartCount.textContent = cart.length;
+
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.innerHTML = `
+        <span>${item.name} - $${item.price}</span>
+        <button class="remove-button" onclick="removeFromCart(${index})">✖</button>
+      `;
+      cartItems.appendChild(itemDiv);
+      total += item.price;
+    });
+
+    document.getElementById('cart-total').textContent = cart.length ? 'Total: $' + total.toFixed(2) : '';
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.style.right = drawer.style.right === '0px' ? '-350px' : '0px';
+  }
+
+  // Update cart on page load
+  window.onload = updateCart;
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D-Book Performance Booster IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fuel your body like a champion. This performance-enhancing IV delivers hydration, muscle recovery support, amino acids, and antioxidant power to maximize athletic output.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"D-Book" Athletic Performance Booster IV Bag</h1>
+  <p>Fuel your body like a champion. This performance-enhancing IV delivers hydration, muscle recovery support, amino acids, and antioxidant power to maximize athletic output.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=4fe36461-5d1b-44cd-96af-96d8e260d96a" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Day After The Dale Hangover Relief IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bounce back fast with our ultimate hangover remedy. Hydration, vitamins, anti-nausea, and headache relief all in one — so you can feel human again, fast.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"Day After The Dale" Hangover Relief IV Bag</h1>
+  <p>Bounce back fast with our ultimate hangover remedy. Hydration, vitamins, anti-nausea, and headache relief all in one — so you can feel human again, fast.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=7febae51-8979-469f-9512-46b80c657df0" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diamondback Immune Booster IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sharpen your body’s natural defenses with this potent immune-boosting IV loaded with vitamin C, zinc, and amino acids to keep sickness at bay.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"Diamondback" Immune System Booster IV Bag</h1>
+  <p>Sharpen your body’s natural defenses with this potent immune-boosting IV loaded with vitamin C, zinc, and amino acids to keep sickness at bay.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=7cb75721-5a3e-4eba-bd75-833ce92acdd7" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arizona Detox and Cleanse IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cleanse your system and feel refreshed. This powerful detox blend supports liver function, fights inflammation, and rebalances your body from the inside out.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"Arizona" Detox and Cleanse IV Bag</h1>
+  <p>Cleanse your system and feel refreshed. This powerful detox blend supports liver function, fights inflammation, and rebalances your body from the inside out.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=4a3f7c17-04fe-43bf-8b93-a379b21cc96f" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scottsdale 10 Beauty IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glow from within. This beauty-focused drip delivers radiant skin, stronger hair and nails, and hydration that rejuvenates you from the inside out.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"Scottsdale 10" Beauty IV Bag</h1>
+  <p>Glow from within. This beauty-focused drip delivers radiant skin, stronger hair and nails, and hydration that rejuvenates you from the inside out.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=96908233-2a37-4fa4-8bb5-26355ee9ea44" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>

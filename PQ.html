@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stay Dripped IV | Basic Treatments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book Basic Hydration IVs at Stay Dripped IV. Add to cart and checkout. Mobile IV services.">
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #2C3E50;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #3498db;
+    }
+    .nav-links {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0072ff;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: #00c6ff;
+    }
+    .treatment-card {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .treatment-card h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    .treatment-card p {
+      margin: 10px 0;
+    }
+    .price {
+      font-weight: bold;
+      color: #27ae60;
+      font-size: 1.2rem;
+    }
+    .add-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .add-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0072ff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+      padding: 20px;
+      overflow-y: auto;
+      transition: right 0.3s;
+      z-index: 9999;
+    }
+    #cart-drawer h3 {
+      margin-top: 0;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .remove-button {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .checkout-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 30px;
+      margin-top: 20px;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<div id="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
+
+<div id="cart-drawer">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+  <div id="cart-total" style="margin-top:10px; font-weight:bold;"></div>
+  <a class="checkout-button" href="review-cart.html">Review & Checkout</a>
+</div>
+
+<h1>Basic Treatments</h1>
+
+<div class="nav-links">
+  <a href="specialty.html">Specialty Treatments</a>
+  <a href="premium.html">Premium/NAD+ Treatments</a>
+</div>
+
+<main>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV (500mL)</h2>
+    <p>Simple hydration for quick recovery after travel, workouts, or heat exposure.</p>
+    <p class="price">$129</p>
+    <button class="add-button" onclick="addToCart('Basic Rehydrate IV (500mL)', 129)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV 2.0 (1000mL)</h2>
+    <p>Full liter hydration with vitamin replenishment for deeper recovery.</p>
+    <p class="price">$149</p>
+    <button class="add-button" onclick="addToCart('Basic Rehydrate IV 2.0 (1000mL)', 149)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV 3.0 (Lactated Ringer 1000mL)</h2>
+    <p>Upgrade hydration with Lactated Ringer’s for athletes and intensive fluid needs.</p>
+    <p class="price">$159</p>
+    <button class="add-button" onclick="addToCart('Basic Rehydrate IV 3.0 (Lactated Ringer)', 159)">Add to Cart</button>
+  </div>
+
+</main>
+
+<script>
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+  function updateCart() {
+    document.getElementById('cart-count').innerText = cart.length;
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.innerHTML = `
+        <span>${item.name} - $${item.price}</span>
+        <button class="remove-button" onclick="removeFromCart(${index})">✖</button>
+      `;
+      cartItems.appendChild(itemDiv);
+      total += item.price;
+    });
+
+    document.getElementById('cart-total').innerText = cart.length ? 'Total: $' + total.toFixed(2) : '';
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.style.right = drawer.style.right === '0px' ? '-350px' : '0px';
+  }
+
+  window.onload = updateCart;
+</script>
+
+</body>
+</html>

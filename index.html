@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stay Dripped IV - Mobile IV Therapy in Scottsdale, AZ</title>
+  <meta name="description" content="Stay Dripped IV provides premium mobile IV therapy services across Scottsdale, Arizona. Book hydration, recovery, and wellness IV treatments with licensed professionals.">
+  <link rel="icon" href="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png">
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f9fbfd; margin: 0; padding: 0; color: #222; }
+    header, nav, footer { text-align: center; padding: 20px; }
+    header img { max-width: 220px; }
+    nav { background: #006aff; }
+    nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: bold; font-size: 15px; }
+    section { max-width: 1000px; margin: auto; padding: 40px 20px; }
+    .card { background: #fff; padding: 24px; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.05); margin-bottom: 25px; }
+    .card h3 { margin-top: 0; }
+    button { background: #006aff; color: white; padding: 10px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-top: 10px; }
+    ul { list-style-type: none; padding-left: 0; }
+    li { padding: 6px 0; }
+    footer { background: #e8edf4; font-size: 13px; }
+    a:hover, button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped Logo">
+  <h1>Stay Dripped IV</h1>
+  <p>Mobile IV Therapy for Hydration, Immunity, and Recovery in Scottsdale</p>
+</header>
+
+<nav>
+  <a href="#menu">Menu</a>
+  <a href="#cart">Cart</a>
+  <a href="#gfe">GFE</a>
+  <a href="#book">Book</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="menu">
+  <h2>IV Therapy & Injections</h2>
+  <div class="card">
+    <h3>Myers' Cocktail - $130</h3>
+    <p>Energy + immune blend: B-complex, C, magnesium, fluids</p>
+    <button onclick="addToCart('Myers Cocktail',130)">Add</button>
+  </div>
+  <div class="card">
+    <h3>Hangover Recovery - $140</h3>
+    <p>Toradol, Zofran, B12, fluids — fast relief after a night out</p>
+    <button onclick="addToCart('Hangover Recovery',140)">Add</button>
+  </div>
+  <div class="card">
+    <h3>Immunity Boost - $145</h3>
+    <p>Vitamin C, Zinc, B12, Glutathione. Fortify and fight back.</p>
+    <button onclick="addToCart('Immunity Boost',145)">Add</button>
+  </div>
+  <div class="card">
+    <h3>Performance Recovery - $160</h3>
+    <p>BCAAs, Taurine, B-complex, Magnesium. Workout recovery fuel.</p>
+    <button onclick="addToCart('Performance Recovery',160)">Add</button>
+  </div>
+  <div class="card">
+    <h3>NAD+ IV - $200</h3>
+    <p>100mg NAD+: anti-aging, focus, cellular rejuvenation</p>
+    <button onclick="addToCart('NAD+ IV',200)">Add</button>
+  </div>
+
+  <h3>Injection Add-ons</h3>
+  <div class="card">
+    <p>B12: $25 (single) / $40 (double)</p>
+    <button onclick="addToCart('B12 Single',25)">Add Single</button>
+    <button onclick="addToCart('B12 Double',40)">Add Double</button>
+  </div>
+  <div class="card">
+    <p>D3: $30 (single) / $45 (double)</p>
+    <button onclick="addToCart('D3 Single',30)">Add Single</button>
+    <button onclick="addToCart('D3 Double',45)">Add Double</button>
+  </div>
+  <div class="card">
+    <p>Glutathione Push: $40</p>
+    <button onclick="addToCart('Glutathione Push',40)">Add</button>
+  </div>
+</section>
+
+<section id="cart">
+  <h2>Your Cart</h2>
+  <ul id="cartItems"></ul>
+  <p><strong>Total: $<span id="cartTotal">0.00</span></strong></p>
+</section>
+
+<section id="gfe">
+  <h2>Good Faith Exam (GFE)</h2>
+  <div class="card">
+    <p>Required for first-time clients. A quick 3–5 min telehealth video consult valid for 12 months.</p>
+    <a href="https://qualiphy.me/staydrippediv" target="_blank"><button>Start GFE with Qualiphy</button></a>
+  </div>
+</section>
+
+<section id="book">
+  <h2>Book an Appointment</h2>
+  <div class="card">
+    <p><strong>Square:</strong> <a href="https://squareup.com/appointments/book/31jh6fe0px1cws/LH9YP2QNT6V6H/start" target="_blank">Book with Square</a></p>
+    <p><strong>PracticeQ:</strong> <a href="https://practiceq.com/bookings/staydrippediv" target="_blank">Book with PracticeQ</a></p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p><strong>Phone:</strong> (480) 826-3353</p>
+    <p><strong>Email:</strong> hello@staydrippediv.com</p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/staydrippedmobileiv" target="_blank">@staydrippedmobileiv</a></p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Stay Dripped IV. All Rights Reserved. | Scottsdale, AZ
+</footer>
+
+<script>
+  const cart = [];
+  function addToCart(item, price) {
+    cart.push({ item, price });
+    renderCart();
+  }
+  function renderCart() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(({ item, price }) => {
+      const li = document.createElement('li');
+      li.textContent = `${item} - $${price.toFixed(2)}`;
+      cartItems.appendChild(li);
+      total += price;
+    });
+    cartTotal.textContent = total.toFixed(2);
+  }
+</script>
+
+</body>
+</html>

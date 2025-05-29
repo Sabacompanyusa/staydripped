@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stay Dripped IV - Mobile IV Therapy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium mobile IV therapy including hydration, recovery, immunity, beauty, and NAD+ treatments delivered to you.">
+  <link rel="icon" href="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" type="image/png">
+  <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/qualiphy-web-d918b.appspot.com/o/style-v4.css?alt=media&token=34735782-16e8-4a2f-9eaa-426d65af48b2">
+  
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #2c3e50;
+    }
+    header {
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header img {
+      max-width: 220px;
+      cursor: pointer;
+    }
+    nav {
+      text-align: center;
+      margin: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0072ff;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    .category-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 40px;
+      color: #2C3E50;
+    }
+    .treatment-card {
+      background: #ffffff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .treatment-card h2 {
+      color: #3498db;
+      font-size: 1.6rem;
+    }
+    .treatment-card p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #27ae60;
+      margin: 10px 0;
+    }
+    .book-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0072ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 320px;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      overflow-y: auto;
+      transition: right 0.3s;
+      z-index: 9999;
+    }
+    .checkout-button {
+      display: block;
+      width: 100%;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+  </style>
+</head>
+
+<body>
+
+<header onclick="window.location.href='/'">
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<nav>
+  <a href="#basic">Basic</a>
+  <a href="#standard">Standard</a>
+  <a href="#specialty">Specialty</a>
+  <a href="#premium">Premium & NAD+</a>
+  <a href="#gfe">GFE Exam</a>
+</nav>
+
+<div id="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
+
+<div id="cart-drawer">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+  <div id="cart-total" style="margin-top:10px; font-weight:bold;"></div>
+  <a class="checkout-button" href="https://staydrippediv.intakeq.com/booking" target="_blank">Proceed to Booking</a>
+</div>
+
+<main>
+
+<section id="basic">
+  <h2 class="category-title">Basic Treatments</h2>
+  <div class="treatment-card">
+    <h2>Basic Rehydrate IV Bag (500mL)</h2>
+    <p>Quick hydration paired with essential vitamins. Ideal after travel, workouts, or heat exposure.</p>
+    <div class="price">$99</div>
+    <a href="https://staydrippediv.intakeq.com/booking?bag=basicrehydrate500" class="book-button" target="_blank">Book Now</a>
+  </div>
+  <!-- Repeat other treatments here -->
+</section>
+
+<section id="standard">
+  <h2 class="category-title">Standard Treatments</h2>
+  <!-- Standard cards here -->
+</section>
+
+<section id="specialty">
+  <h2 class="category-title">Specialty Treatments</h2>
+  <!-- Specialty cards here -->
+</section>
+
+<section id="premium">
+  <h2 class="category-title">Premium & NAD+ Treatments</h2>
+  <!-- Premium and NAD+ cards here -->
+</section>
+
+<section id="gfe">
+  <h2 class="category-title">First-Time Patient Exam</h2>
+  <p>Stay Dripped IV requires a brief Good Faith Exam (GFE) telehealth evaluation for first-time patients to ensure your safety and wellness.</p>
+
+  <div id="main-qualiphy-widget">
+    <div id="loadFormButton"
+      style="width: 150px; height: 40px; cursor: pointer; background-color: #cfc9ff; color: #0a005b; border: none; border-radius: 5px; font-weight: 600; display: flex; justify-content: center; align-items: center;"
+      onmouseover="this.style.backgroundColor='#8058fa'; this.style.color='white'"
+      onmouseout="this.style.backgroundColor='#CFC9FF'; this.style.color='#0A005B'"
+      onclick="showDisclosureModal()">
+      Start Required Medical Clearance
+    </div>
+  </div>
+  <p style="display: none" id="not-available">Not available!</p>
+</section>
+
+</main>
+
+<script>
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+  }
+
+  function updateCart() {
+    document.getElementById('cart-count').textContent = cart.length;
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span style="flex:1;">${item.name} - $${item.price}</span>
+          <button style="background:none;border:none;color:red;font-weight:bold;cursor:pointer;font-size:18px;" onclick="removeFromCart(${index})">✖</button>
+        </div>
+      `;
+      cartItems.appendChild(itemDiv);
+      total += item.price;
+    });
+    document.getElementById('cart-total').textContent = cart.length ? 'Total: $' + total.toFixed(2) : '';
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+  }
+
+  function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.style.right = drawer.style.right === '0px' ? '-350px' : '0px';
+  }
+
+  window.onload = updateCart;
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script id="qualiphy-script" type="text/javascript" src="https://www.app.qualiphy.me/scripts/quidget_disclosure.js"
+  data-formsrc="https://www.app.qualiphy.me/qualiphy-widget?clinic=Stay Dripped IV, LLC&clinicId=2805&first_name=&last_name=&email=&phone_number=&gender=&exams=1855,309&tele_state_required=true&token=04eb33342e38eb7bf29c6e012e467eda337e8c7d"
+  data-timezone='-6'
+  data-examhours='[{"SUN":{"FROM":"09:00","TO":"18:00","isDaySelected":true}},{"MON":{"FROM":"07:00","TO":"20:00","isDaySelected":true}},{"TUE":{"FROM":"07:00","TO":"20:00","isDaySelected":true}},{"WED":{"FROM":"07:00","TO":"20:00","isDaySelected":true}},{"THU":{"FROM":"07:00","TO":"20:00","isDaySelected":true}},{"FRI":{"FROM":"07:00","TO":"21:00","isDaySelected":true}},{"SAT":{"FROM":"07:00","TO":"21:00","isDaySelected":true}}]'
+></script>
+
+</body>
+</html>

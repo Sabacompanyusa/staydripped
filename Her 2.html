@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stay Dripped IV | Specialty Treatments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book Specialty IVs at Stay Dripped IV. Hangover recovery, immune boosters, performance IVs, beauty drips. Mobile IV services.">
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #2C3E50;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #3498db;
+    }
+    .nav-links {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0072ff;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: #00c6ff;
+    }
+    .treatment-card {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 700px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .treatment-card h2 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    .treatment-card p {
+      margin: 10px 0;
+    }
+    .price {
+      font-weight: bold;
+      color: #27ae60;
+      font-size: 1.2rem;
+    }
+    .add-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .add-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    #cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0072ff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+      padding: 20px;
+      overflow-y: auto;
+      transition: right 0.3s;
+      z-index: 9999;
+    }
+    #cart-drawer h3 {
+      margin-top: 0;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .remove-button {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .checkout-button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 30px;
+      margin-top: 20px;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<div id="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
+
+<div id="cart-drawer">
+  <h3>Your Cart</h3>
+  <div id="cart-items"></div>
+  <div id="cart-total" style="margin-top:10px; font-weight:bold;"></div>
+  <a class="checkout-button" href="review-cart.html">Review & Checkout</a>
+</div>
+
+<h1>Specialty Treatments</h1>
+
+<div class="nav-links">
+  <a href="index.html">Basic Treatments</a>
+  <a href="premium.html">Premium/NAD+ Treatments</a>
+</div>
+
+<main>
+
+  <div class="treatment-card">
+    <h2>Myers' Cocktail</h2>
+    <p>The classic blend of hydration, vitamins, and minerals for overall wellness and immune support.</p>
+    <p class="price">$189</p>
+    <button class="add-button" onclick="addToCart('Myers\' Cocktail', 189)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>Mega Myers' Cocktail</h2>
+    <p>A stronger, double-dosed version of the Myers' for deeper revitalization and immune defense.</p>
+    <p class="price">$249</p>
+    <button class="add-button" onclick="addToCart('Mega Myers\' Cocktail', 249)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>"Day After The Dale" Hangover Relief</h2>
+    <p>Rapid hangover recovery with hydration, electrolytes, anti-nausea, and headache relief.</p>
+    <p class="price">$229</p>
+    <button class="add-button" onclick="addToCart('Day After The Dale Hangover Relief', 229)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>"D-Book" Athletic Performance Boost</h2>
+    <p>Fuel your body like a champion. Aminos, vitamins, recovery hydration in one powerful drip.</p>
+    <p class="price">$249</p>
+    <button class="add-button" onclick="addToCart('D-Book Athletic Performance Boost', 249)">Add to Cart</button>
+  </div>
+
+  <div class="treatment-card">
+    <h2>"Scottsdale 10" Beauty Bag</h2>
+    <p>Glow from the inside out. Collagen boosting vitamins, antioxidants, and skin hydrators.</p>
+    <p class="price">$229</p>
+    <button class="add-button" onclick="addToCart('Scottsdale 10 Beauty Bag', 229)">Add to Cart</button>
+  </div>
+
+</main>
+
+<script>
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+  function updateCart() {
+    document.getElementById('cart-count').innerText = cart.length;
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'cart-item';
+      itemDiv.innerHTML = `
+        <span>${item.name} - $${item.price}</span>
+        <button class="remove-button" onclick="removeFromCart(${index})">✖</button>
+      `;
+      cartItems.appendChild(itemDiv);
+      total += item.price;
+    });
+
+    document.getElementById('cart-total').innerText = cart.length ? 'Total: $' + total.toFixed(2) : '';
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.style.right = drawer.style.right === '0px' ? '-350px' : '0px';
+  }
+
+  window.onload = updateCart;
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sun Devil Energy Boost IV | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ignite your energy with a powerful blend of B vitamins, Taurine, and Alpha Lipoic Acid — perfect for busy lifestyles, late nights, and active days.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .book-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .book-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+    .back-link {
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #0072ff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #00c6ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>"Sun Devil" Energy Boost IV Bag</h1>
+  <p>Ignite your energy with a powerful blend of B vitamins, Taurine, and Alpha Lipoic Acid — perfect for busy lifestyles, late nights, and active days.</p>
+
+  <a class="book-button" href="https://Staydrippediv.intakeq.com/booking?serviceId=229914fc-1aa6-4298-8729-e8a628ccffa3" target="_blank">
+    Book Now
+  </a>
+
+  <a class="back-link" href="index.html">← Back to All Services</a>
+</main>
+
+</body>
+</html>

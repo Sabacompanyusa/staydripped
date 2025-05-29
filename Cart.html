@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Your Cart | Stay Dripped IV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your selected IV therapy treatments before completing your booking.">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2C3E50;
+    }
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    header img {
+      max-width: 250px;
+      border-radius: 8px;
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 2rem;
+      color: #3498db;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .cart-summary {
+      margin: 20px 0;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      font-size: 1.1rem;
+    }
+    .total {
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .checkout-button {
+      display: block;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 15px 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      margin: 30px auto;
+      width: fit-content;
+      transition: background 0.3s;
+    }
+    .checkout-button:hover {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+</header>
+
+<main>
+  <h1>Review Your Cart</h1>
+
+  <div class="cart-summary" id="cart-summary"></div>
+
+  <div class="total" id="total"></div>
+
+  <a href="https://Staydrippediv.intakeq.com/booking" class="checkout-button">Continue to Book Appointment</a>
+</main>
+
+<script>
+  window.onload = function() {
+    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    let summary = '';
+    let total = 0;
+    cart.forEach(item => {
+      summary += `<div class="cart-item">${item.name} - $${item.price}</div>`;
+      total += item.price;
+    });
+    document.getElementById('cart-summary').innerHTML = summary || '<p>Your cart is empty.</p>';
+    document.getElementById('total').innerText = cart.length ? 'Total: $' + total.toFixed(2) : '';
+  }
+</script>
+
+</body>
+</html>
