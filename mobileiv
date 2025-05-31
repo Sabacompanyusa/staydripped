@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stay Dripped IV – Mobile App Demo</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f3f4f6;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header img {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #374151;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #6B7280;
+      font-size: 1.2rem;
+    }
+
+    .app-frame {
+      max-width: 400px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #F97316, #DC2626);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .phone {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-header {
+      background: linear-gradient(135deg, #F97316, #DC2626);
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .app-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 20px;
+    }
+
+    .logo-text h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 14px;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .profile-icon {
+      width: 35px;
+      height: 35px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .location-bar {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .view-map-btn {
+      width: 100%;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .view-map-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .content {
+      flex: 1;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #374151;
+    }
+
+    .treatment-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .treatment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .treatment-info {
+      flex: 1;
+    }
+
+    .treatment-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #F97316;
+      margin-bottom: 8px;
+    }
+
+    .treatment-desc {
+      font-size: 14px;
+      color: #6B7280;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .treatment-duration {
+      font-size: 12px;
+      color: #9CA3AF;
+      display: flex;
+      align-items: center;
+    }
+
+    .treatment-price {
+      text-align: right;
+      margin-left: 15px;
+    }
+
+    .price-amount {
+      font-size: 20px;
+      font-weight: bold;
+      color: #374151;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 12px;
+      color: #6B7280;
+    }
+
+    .book-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #F97316, #DC2626);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .book-btn:hover {
+      background: linear-gradient(90deg, #DC2626, #F97316);
+      transform: translateY(-1px);
+    }
+
+    .nurse-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+    }
+
+    .nurse-avatar {
+      width: 50px;
+      height: 50px;
+      background: #FED7AA;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 24px;
+      color: #F97316;
+    }
+
+    .nurse-info h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .nurse-rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .nurse-distance {
+      font-size: 12px;
+      color: #6B7280;
+    }
+
+    .bottom-nav {
+      background: white;
+      border-top: 1px solid #E5E7EB;
+      padding: 15px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .nav-item.active {
+      color: #F97316;
+    }
+
+    .nav-item.inactive {
+      color: #9CA3AF;
+    }
+
+    .nav-icon {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .nav-label {
+      font-size: 12px;
+    }
+
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #F97316;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .screen {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen-header {
+      background: white;
+      padding: 20px;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      margin-right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .screen-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .detail-content {
+      flex: 1;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #FED7AA, #FDBA74);
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #9A3412;
+      margin-bottom: 10px;
+    }
+
+    .hero-price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #F97316;
+      margin-bottom: 10px;
+    }
+
+    .hero-duration {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #F97316;
+    }
+
+    .hero-desc {
+      color: #7C2D12;
+      line-height: 1.5;
+    }
+
+    .included-section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    .included-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .included-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-icon {
+      color: #10B981;
+      margin-right: 10px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .primary-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #F97316, #DC2626);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    }
+
+    .tracking-map {
+      flex: 1;
+      background: linear-gradient(180deg, #FED7AA 0%, #FDBA74 50%, #FB923C 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7C2D12;
+      text-align: center;
+    }
+
+    .map-content {
+      text-align: center;
+    }
+
+    .map-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .nurse-indicator {
+      position: absolute;
+      top: 30%;
+      right: 25%;
+      background: #10B981;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bounce 2s infinite;
+      font-size: 20px;
+      color: white;
+    }
+
+    .tracking-panel {
+      background: white;
+      padding: 20px;
+    }
+
+    .nurse-status {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .nurse-status-avatar {
+      width: 50px;
+      height: 50px;
+      background: #FED7AA;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 24px;
+      color: #F97316;
+    }
+
+    .status-info h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .eta-info {
+      display: flex;
+      align-items: center;
+      color: #6B7280;
+      font-size: 14px;
+    }
+
+    .appointment-summary {
+      background: linear-gradient(135deg, #FED7AA, #FDBA74);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-info h4 {
+      color: #9A3412;
+      margin-bottom: 5px;
+    }
+
+    .summary-time {
+      font-size: 14px;
+      color: #7C2D12;
+    }
+
+    .summary-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #9A3412;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+
+    .message-btn {
+      background: #FED7AA;
+      color: #9A3412;
+    }
+
+    .call-btn {
+      background: linear-gradient(135deg, #F97316, #DC2626);
+      color: white;
+    }
+
+    .booking-content {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .booking-hero {
+      background: linear-gradient(135deg, #FED7AA, #FDBA74);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .booking-title {
+      font-size: 24px;
+      color: #9A3412;
+      margin-bottom: 15px;
+    }
+
+    .booking-service {
+      color: #7C2D12;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .booking-note {
+      color: #7C2D12;
+    }
+
+    .steps-section {
+      margin-bottom: 30px;
+    }
+
+    .steps-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .steps-list {
+      text-align: left;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .step-item {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      background: white;
+      color: #F97316;
+      border: 2px solid #F97316;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://staydrippediv.com/wp-content/uploads/2024/05/Stay-Dripped-IV-Logo.png" alt="Stay Dripped IV Logo">
+    <h1>Mobile IV Therapy App Demo</h1>
+    <p>Experience how customers book and track their IV treatments</p>
+  </div>
+
+  <!-- Cart -->
+  <div class="cart-icon" onclick="alert('Cart feature - add items from the treatments below!')">
+    🛒 Cart (0)
+  </div>
+
+  <!-- Mobile App Demo -->
+  <div class="app-frame">
+    <div class="phone">
+      
+      <!-- Home Screen -->
+      <div id="home-screen" class="screen">
+        <div class="app-header">
+          <div class="app-header-top">
+            <div class="logo-section">
+              <div class="logo-icon">⚡</div>
+              <div class="logo-text">
+                <h1>Stay Dripped</h1>
+                <p>Mobile IV Therapy</p>
+              </div>
+            </div>
+            <div class="profile-icon">👤</div>
+          </div>
+          
+          <div class="location-bar">
+            📍 Scottsdale, Arizona
+          </div>
+
+          <button class="view-map-btn" onclick="showScreen('map')">
+            🗺️ View Service Areas
+          </button>
+        </div>
+
+        <div class="content">
+          <div class="section-title">Featured IV Treatments</div>
+          
+          <div class="treatment-card" onclick="showTreatmentDetail('Myers Cocktail', 204, 'The gold standard IV - B-12, Zinc, Magnesium, Glutathione, Vitamin C, B-Complex')">
+            <div class="treatment-header">
+              <div class="treatment-info">
+                <div class="treatment-name">Myers Cocktail</div>
+                <div class="treatment-desc">The gold standard IV - B-12, Zinc, Magnesium, Glutathione, Vitamin C, B-Complex</div>
+                <div class="treatment-duration">🕐 45 min</div>
+              </div>
+              <div class="treatment-price">
+                <div class="price-amount">$204</div>
+                <div class="rating">⭐ 98%</div>
+              </div>
+            </div>
+            <button class="book-btn" onclick="event.stopPropagation(); addToCart('Myers Cocktail', 204)">
+              Add to Cart - $204
+            </button>
+          </div>
+
+          <div class="treatment-card" onclick="showTreatmentDetail('Hangover Recovery', 234, 'Perfect for Old Town recovery - Anti-nausea, pain relief, rapid rehydration')">
+            <div class="treatment-header">
+              <div class="treatment-info">
+                <div class="treatment-name">Hangover Recovery</div>
+                <div class="treatment-desc">Perfect for Old Town recovery - Anti-nausea, pain relief, rapid rehydration</div>
+                <div class="treatment-duration">🕐 60 min</div>
+              </div>
+              <div class="treatment-price">
+                <div class="price-amount">$234</div>
+                <div class="rating">⭐ 96%</div>
+              </div>
+            </div>
+            <button class="book-btn" onclick="event.stopPropagation(); addToCart('Hangover Recovery', 234)">
+              Add to Cart - $234
+            </button>
+          </div>
+
+          <div class="treatment-card" onclick="showTreatmentDetail('Athletic Performance', 244, 'Peak performance - Amino acids, B-Complex, Magnesium, Taurine')">
+            <div class="treatment-header">
+              <div class="treatment-info">
+                <div class="treatment-name">Athletic Performance</div>
+                <div class="treatment-desc">Peak performance - Amino acids, B-Complex, Magnesium, Taurine</div>
+                <div class="treatment-duration">🕐 50 min</div>
+              </div>
+              <div class="treatment-price">
+                <div class="price-amount">$244</div>
+                <div class="rating">⭐ 94%</div>
+              </div>
+            </div>
+            <button class="book-btn" onclick="event.stopPropagation(); addToCart('Athletic Performance', 244)">
+              Add to Cart - $244
+            </button>
+          </div>
+
+          <div class="treatment-card" onclick="showTreatmentDetail('Stay Dripped Special', 324, 'Our signature blend - Complete wellness optimization')">
+            <div class="treatment-header">
+              <div class="treatment-info">
+                <div class="treatment-name">Stay Dripped Special</div>
+                <div class="treatment-desc">Our signature blend - Complete wellness optimization</div>
+                <div class="treatment-duration">🕐 75 min</div>
+              </div>
+              <div class="treatment-price">
+                <div class="price-amount">$324</div>
+                <div class="rating">⭐ 99%</div>
+              </div>
+            </div>
+            <button class="book-btn" onclick="event.stopPropagation(); addToCart('Stay Dripped Special', 324)">
+              Add to Cart - $324
+            </button>
+          </div>
+
+          <div class="section-title" style="margin-top: 30px;">Available Nurses</div>
+
+          <div class="nurse-card">
+            <div class="nurse-avatar">👩‍⚕️</div>
+            <div class="nurse-info">
+              <h3>Sarah Johnson, RN</h3>
+              <div class="nurse-rating">⭐ 4.9 (128 reviews)</div>
+              <div class="nurse-distance">📍 2.3 mi away</div>
+            </div>
+          </div>
+
+          <div class="nurse-card">
+            <div class="nurse-avatar">👨‍⚕️</div>
+            <div class="nurse-info">
+              <h3>Michael Chen, NP</h3>
+              <div class="nurse-rating">⭐ 4.8 (103 reviews)</div>
+              <div class="nurse-distance">📍 3.5 mi away</div>
+            </div>
+          </div>
+
+          <div class="nurse-card">
+            <div class="nurse-avatar">👩‍⚕️</div>
+            <div class="nurse-info">
+              <h3>Aisha Patel, RN</h3>
+              <div class="nurse-rating">⭐ 5.0 (87 reviews)</div>
+              <div class="nurse-distance">📍 1.8 mi away</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="nav-item active">
+            <div class="nav-icon">📍</div>
+            <div class="nav-label">Explore</div>
+          </button>
+          <button class="nav-item inactive">
+            <div class="nav-icon">📅</div>
+            <div class="nav-label">Appointments</div>
+          </button>
+          <button class="nav-item inactive">
+            <div class="nav-icon">💬</div>
+            <div class="nav-label">Messages</div>
+          </button>
+          <button class="nav-item inactive">
+            <div class="nav-icon">👤</div>
+            <div class="nav-label">Profile</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Treatment Detail Screen -->
+      <div id="detail-screen" class="screen hidden">
+        <div class="screen-header">
+          <button class="back-btn" onclick="showScreen('home')">←</button>
+          <div class="screen-title">Treatment Details</div>
+        </div>
+
+        <div class="detail-content">
+          <div class="hero-section">
+            <div class="hero-title" id="detail-name">Myers Cocktail</div>
+            <div class="hero-price" id="detail-price">$204</div>
+            <div class="hero-duration">🕐 45 min</div>
+            <div class="hero-desc" id="detail-desc">The gold standard IV - B-12, Zinc, Magnesium, Glutathione, Vitamin C, B-Complex</div>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <h3 style="font-size: 20px; font-weight: bold; margin-bottom: 15px;">What's Included</h3>
+            <div class="included-section">
+              <div class="included-item">
+                <div class="check-icon">✓</div>
+                <div>Licensed medical professional comes to you</div>
+              </div>
+              <div class="included-item">
+                <div class="check-icon">✓</div>
+                <div>Premium IV setup with medical-grade equipment</div>
+              </div>
+              <div class="included-item">
+                <div class="check-icon">✓</div>
+                <div>Custom vitamin blend for your treatment</div>
+              </div>
+              <div class="included-item">
+                <div class="check-icon">✓</div>
+                <div>24/7 support line for any questions</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="primary-btn" onclick="showScreen('booking')">
+            Book This Treatment
+          </button>
+        </div>
+      </div>
+
+      <!-- Booking Screen -->
+      <div id="booking-screen" class="screen hidden">
+        <div class="screen-header">
+          <button class="back-btn" onclick="showScreen('detail')">←</button>
+          <div class="screen-title">Book Appointment</div>
+        </div>
+
+        <div class="booking-content">
+          <div class="booking-hero">
+            <h2 class="booking-title">Ready to Book!</h2>
+            <p class="booking-service" id="booking-service">Myers Cocktail - $204</p>
+            <p class="booking-note">In a real app, you'd select your date, time, and preferred nurse here.</p>
+          </div>
+
+          <div class="steps-section">
+            <h3 class="steps-title">Next Steps:</h3>
+            <div class="steps-list">
+              <div class="step-item">📅 Choose your preferred date & time</div>
+              <div class="step-item">👩‍⚕️ Select your nurse</div>
+              <div class="step-item">📍 Confirm your location</div>
+              <div class="step-item">💳 Complete payment</div>
+            </div>
+          </div>
+
+          <button class="primary-btn" onclick="showScreen('tracking')" style="margin-bottom: 15px;">
+            Complete Booking (Demo)
+          </button>
+
+          <a href="https://staydrippediv.intakeq.com/booking" target="_blank" class="secondary-btn">
+            Book Real Appointment
+          </a>
+        </div>
+      </div>
+
+      <!-- Tracking Screen -->
+      <div id="tracking-screen" class="screen hidden">
+        <div class="screen-header">
+          <button class="back-btn" onclick="showScreen('home')">←</button>
+          <div class="screen-title">Track Your Nurse</div>
+        </div>
+
+        <div class="tracking-map">
+          <div class="map-content">
+            <div class="map-icon">🗺️</div>
+            <p style="font-size: 16px; font-weight: bold; margin: 0;">Live Tracking Map</p>
+            <p style="font-size: 14px; margin: 5px 0 0 0;">Sarah is 8 minutes away</p>
+          </div>
+          <div class="nurse-indicator">👩‍⚕️</div>
+        </div>
+
+        <div class="tracking-panel">
+          <div class="nurse-status">
+            <div class="nurse-status-avatar">👩‍⚕️</div>
+            <div class="status-info">
+              <h3>Sarah Johnson is on the way</h3>
+              <div class="eta-info">🧭 Arriving in ~8 minutes</div>
+            </div>
+          </div>
+
+          <div class="appointment-summary">
+            <div class="summary-info">
+              <h4 id="tracking-service">Myers Cocktail</h4>
+              <p class="summary-time">Today, 3:00 PM</p>
+            </div>
+            <div class="summary-price" id="tracking-price">$204</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="action-btn message-btn">
+              💬 Message
+            </button>
+            <button class="action-btn call-btn">
+              📞 Call
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Screen -->
+      <div id="map-screen" class="screen hidden">
+        <div class="screen-header">
+          <button class="back-btn" onclick="showScreen('home')">←</button>
+          <div class="screen-title">Service Areas</div>
+        </div>
+
+        <div style="flex: 1; background: linear-gradient(180deg, #FED7AA 0%, #FDBA74 50%, #FB923C 100%); padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div style="font-size: 64px; margin-bottom: 20px;">🌵</div>
+          <h2 style="color: #7C2D12; font-size: 24px; font-weight: bold; margin-bottom: 15px;">
+            Scottsdale Coverage
+          </h2>
+          <div style="background: rgba(255,255,255,0.9); border-radius: 15px; padding: 20px; max-width: 300px;">
+            <div style="margin-bottom: 10px; font-size: 16px; font-weight: 500;">📍 Old Town Scottsdale</div>
+            <div style="margin-bottom: 10px; font-size: 16px; font-weight: 500;">📍 North Scottsdale</div>
+            <div style="margin-bottom: 10px; font-size: 16px; font-weight: 500;">📍 Paradise Valley</div>
+            <div style="margin-bottom: 10px; font-size: 16px; font-weight: 500;">📍 Arcadia</div>
+            <div style="margin-bottom: 10px; font-size: 16px; font-weight: 500;">📍 Kierland</div>
+            <div style="font-size: 16px; font-weight: 500;">📍 McCormick Ranch</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IntakeQ Widget -->
+  <div id="intakeq"></div>
+
+  <script>
+    // Global variables
+    let currentTreatment = {
+      name: 'Myers Cocktail',
+      price: 204,
+      description: 'The gold standard IV - B-12, Zinc, Magnesium, Glutathione, Vitamin C, B-Complex'
+    };
+
+    // Screen navigation
+    function showScreen(screenName) {
+      // Hide all screens
+      const screens = document.querySelectorAll('.screen');
+      screens.forEach(screen => screen.classList.add('hidden'));
+      
+      // Show selected screen
+      const targetScreen = document.getElementById(screenName + '-screen');
+      if (targetScreen) {
+        targetScreen.classList.remove('hidden');
+      }
+    }
+
+    // Show treatment detail
+    function showTreatmentDetail(name, price, description) {
+      currentTreatment = { name, price, description };
+      
+      document.getElementById('detail-name').textContent = name;
+      document.getElementById('detail-price').textContent = '$' + price;
+      document.getElementById('detail-desc').textContent = description;
+      document.getElementById('booking-service').textContent = name + ' - $' + price;
+      document.getElementById('tracking-service').textContent = name;
+      document.getElementById('tracking-price').textContent = '$' + price;
+      
+      showScreen('detail');
+    }
+
+    // Cart functionality
+    function addToCart(name, price) {
+      alert(`Added ${name} ($${price}) to cart!\n\nIn the real app, this would save to your cart and you could checkout through our booking system.`);
+    }
+
+    // Initialize app
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Stay Dripped App Loaded Successfully!');
+    });
+  </script>
+
+  <!-- IntakeQ Widget Script -->
+  <script defer>
+    (function (d) {
+      window.intakeq = "674110f90e65fb080469868d";
+      const s = d.createElement("script");
+      s.async = true;
+      s.src = "https://intakeq.com/js/widget.min.js?1";
+      d.head.appendChild(s);
+    })(document);
+  </script>
+
+</body>
+</html>
